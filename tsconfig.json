@@ -9,6 +9,9 @@
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
+    // Lets the ai package import with explicit .ts extensions so the same
+    // files can run under Node's built-in test runner (type stripping).
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
@@ -19,6 +22,7 @@
       }
     ],
     "paths": {
+      "@/*": ["./src/*"],
       "@//*": ["./src/*"]
     }
   },

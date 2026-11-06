@@ -1,26 +1,52 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Editorial warm-paper palette. Light-first social product. */
+  --color-paper: #faf8f3;
+  --color-paper-elevated: #ffffff;
+  --color-ink: #16130e;
+  --color-ink-soft: #57534a;
+  --color-ink-faint: #8a857a;
+  --color-line: #e7e1d6;
+  --color-line-strong: #d6cfbf;
+
+  --color-accent: #e85d04;
+  --color-accent-ink: #9a3d00;
+  --color-accent-soft: #fff1e6;
+
+  --color-compliment: #166534;
+  --color-compliment-soft: #e7f6ec;
+  --color-roast: #b91c1c;
+  --color-roast-soft: #fdecec;
+  --color-joke: #92600a;
+  --color-joke-soft: #fef3c7;
+  --color-observation: #1d4ed8;
+  --color-observation-soft: #eff4ff;
+
+  --color-danger: #b91c1c;
+  --shadow-card: 0 1px 2px rgb(22 19 14 / 0.05), 0 8px 24px rgb(22 19 14 / 0.06);
+  --shadow-pop: 0 12px 40px rgb(22 19 14 / 0.18);
+  --radius-card: 1rem;
+  --radius-pill: 999px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--color-accent); color: #fff; }
+
+/* Subtle paper grain via layered gradients (no external asset). */
+.paper-texture {
+  background-image: radial-gradient(rgb(22 19 14 / 0.035) 1px, transparent 1px);
+  background-size: 22px 22px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
